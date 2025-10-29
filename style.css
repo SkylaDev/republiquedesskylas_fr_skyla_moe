@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+html { background: #2a002e; }
+
+body {
+    margin: 0;
+    background: #3e0044;
+    margin: 25px;
+    overflow: hidden;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 50px);
+}
+
+img[id="skyla"] {
+    width: 350px;
+    z-index: 1000;
+}
+
+@keyframes starburst_spin {
+    0% { transform: translateX(-50%) translateY(-50%) rotateZ(0deg); }
+    100% { transform: translateX(-50%) translateY(-50%) rotateZ(360deg); }
+}
+
+img[id="starburst"] {
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 999;
+    animation: starburst_spin 25s infinite linear;
+}
+
+.quote {
+    position: absolute;
+    width: 320px;
+    pointer-events: none;
+    transition: transform 0.1s linear;
+}
+
+audio { display: none; }
+
+footer {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #e2e2e2;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+footer a {
+    text-decoration: none;
+    color: #fc9fff;
+}
