@@ -1,8 +1,8 @@
 // Wow creative name huh
 
-const quoteURL = 'https://cloud.skyla.moe/raw/quotes/'
-
+let interTimer;
 const music = document.getElementById('music');
+const quoteURL = 'https://cloud.skyla.moe/raw/quotes/'
 
 
 function toggleMusic() {
@@ -49,4 +49,13 @@ function spawnQuote() {
     move();
 }
 
-setInterval(spawnQuote, 1000);
+
+function startSpawning() { interTimer = setInterval(spawnQuote, 1000); }
+function stopSpawning() { clearInterval(interTimer); }
+
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { stopSpawning(); }
+    else { startSpawning(); }
+});
+
+startSpawning();
